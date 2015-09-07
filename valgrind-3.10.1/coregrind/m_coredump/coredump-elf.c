@@ -138,6 +138,9 @@ static void fill_phdr(ESZ(Phdr) *phdr, const NSegment *seg, UInt off, Bool write
 
 #if defined(VGPV_arm_linux_android) || defined(VGPV_x86_linux_android) \
     || defined(VGPV_mips32_linux_android)
+#if defined(APP_PLATFORM_LEVEL) && APP_PLATFORM_LEVEL >= 21
+#warning FIXME ... unsure about which platform level rectified this issue, but Works For Me (tm) on >= 21
+#else
 /* Android's libc doesn't provide a definition for this.  Hence: */
 typedef
    struct {
@@ -146,6 +149,7 @@ typedef
       Elf32_Word n_type;
    }
    Elf32_Nhdr;
+#endif
 #endif
 
 struct note {
