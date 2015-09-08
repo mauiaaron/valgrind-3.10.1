@@ -1,2 +1,6 @@
 # valgrind-3.10.1
-Copy of Valgrind
+
+Valgrind ... with some local commits to get it Building For Me (tm) on Android ...
+
+`./build_valgrind.sh --help`
+
